@@ -1,0 +1,167 @@
+config:
+  hyperparams:
+  - default: col_5
+    description: Name of the target/label column in the training CSV.
+    maxValue: null
+    minValue: null
+    name: target_column
+    options: []
+    pattern: null
+    type: STRING
+  - default: '1'
+    description: Standardize numeric features before training and prediction.
+    maxValue: null
+    minValue: null
+    name: standardize
+    options: []
+    pattern: null
+    type: BOOLEAN
+  - default: '1.0'
+    description: Inverse regularization strength (smaller => stronger regularization).
+    maxValue: null
+    minValue: 0.0
+    name: C
+    options: []
+    pattern: null
+    type: FLOAT
+  - default: '200'
+    description: Maximum number of solver iterations.
+    maxValue: 100000.0
+    minValue: 1.0
+    name: max_iter
+    options: []
+    pattern: null
+    type: INTEGER
+  - default: lbfgs
+    description: Optimizer/solver used for Logistic Regression.
+    maxValue: null
+    minValue: null
+    name: solver
+    options:
+    - lbfgs
+    - liblinear
+    - saga
+    - newton-cg
+    - sag
+    pattern: null
+    type: CATEGORICAL
+  - default: auto
+    description: Multi-class handling strategy.
+    maxValue: null
+    minValue: null
+    name: multi_class
+    options:
+    - auto
+    - ovr
+    - multinomial
+    pattern: null
+    type: CATEGORICAL
+  - default: balanced
+    description: Class weighting strategy. Use balanced for imbalanced datasets.
+    maxValue: null
+    minValue: null
+    name: class_weight
+    options:
+    - balanced
+    - none
+    pattern: null
+    type: CATEGORICAL
+  - default: '42'
+    description: Random seed.
+    maxValue: 2147483600.0
+    minValue: 0.0
+    name: random_state
+    options: []
+    pattern: null
+    type: INTEGER
+  - default: '15'
+    description: Number of top positive/negative coefficients per class to show in
+      explanation.html.
+    maxValue: 200.0
+    minValue: 1.0
+    name: explain_top_k
+    options: []
+    pattern: null
+    type: INTEGER
+  input:
+  - delimiter: ','
+    description: Training CSV containing numeric features and a target column (target_column).
+      Optional first column 'id'.
+    hasHeader: true
+    indexCol: null
+    maxValue: null
+    minValue: null
+    mode: null
+    name: data
+    required: true
+    shape: null
+    tabularSchema:
+      allowOnlyNumbers: false
+      columns: null
+      maxColumns: null
+      maxRows: null
+      minColumns: null
+      minRows: null
+      nullPolicy: null
+      prohibitedNulls: false
+      requiredColumns: null
+    type: CSV
+  output:
+  - delimiter: null
+    description: Human-readable explainability report (top positive/negative coefficients
+      per class).
+    hasHeader: null
+    indexCol: null
+    maxValue: null
+    minValue: null
+    mode: null
+    name: explanation
+    required: false
+    shape: null
+    tabularSchema: null
+    type: HTML
+  - delimiter: null
+    description: Small textual run report.
+    hasHeader: null
+    indexCol: null
+    maxValue: null
+    minValue: null
+    mode: null
+    name: report
+    required: false
+    shape: null
+    tabularSchema: null
+    type: TEXT
+  - delimiter: null
+    description: Predictions CSV including label and probabilities for each class
+      (p_<class> columns).
+    hasHeader: null
+    indexCol: null
+    maxValue: null
+    minValue: null
+    mode: PREDICTION
+    name: predictions
+    required: false
+    shape: null
+    tabularSchema: null
+    type: CSV
+  - delimiter: null
+    description: Long-form coefficient table per class (includes intercept).
+    hasHeader: null
+    indexCol: null
+    maxValue: null
+    minValue: null
+    mode: null
+    name: coefficients
+    required: false
+    shape: null
+    tabularSchema: null
+    type: CSV
+info:
+  name: tool-logistic-regression
+  slug: tool-logistic-regression
+  type: ANALYSIS
+  sourceUrl: https://github.com/FedLearnNet/tool-logistic-regression
+  shortDescription: Trains logistic regression models and exports predictions, coefficients,
+    and feature explanations.
+  longDescription: null
