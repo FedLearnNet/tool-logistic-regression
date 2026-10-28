@@ -158,8 +158,8 @@ config:
     tabularSchema: null
     type: CSV
 info:
-  name: tool-logistic-regression
-  slug: tool-logistic-regression
+  name: logistic-regression
+  slug: logistic-regression
   type: ANALYSIS
   sourceUrl: https://github.com/FedLearnNet/tool-logistic-regression
   shortDescription: Trains logistic regression models and exports predictions, coefficients,

@@ -1,4 +1,4 @@
-# tool-logistic-regression
+# logistic-regression
 
 Trains logistic regression models and exports predictions, coefficients, and feature explanations.
 
